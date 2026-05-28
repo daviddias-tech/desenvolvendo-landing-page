@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Seu Produto Premium</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#050816;
+    color:white;
+    overflow-x:hidden;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+header{
+    padding:25px 0;
+    border-bottom:1px solid rgba(255,255,255,.06);
+    position:sticky;
+    top:0;
+    backdrop-filter:blur(10px);
+    background:rgba(5,8,22,.85);
+    z-index:100;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:800;
+    color:#8b5cf6;
+}
+
+.menu{
+    display:flex;
+    gap:25px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:#d1d5db;
+    font-size:14px;
+}
+
+.btn{
+    background:linear-gradient(90deg,#8b5cf6,#7c3aed);
+    padding:14px 28px;
+    border-radius:12px;
+    color:white;
+    text-decoration:none;
+    font-weight:700;
+    display:inline-block;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.hero{
+    padding:120px 0;
+    text-align:center;
+}
+
+.badge{
+    display:inline-block;
+    background:rgba(139,92,246,.12);
+    color:#a78bfa;
+    padding:10px 18px;
+    border-radius:999px;
+    font-size:14px;
+    margin-bottom:30px;
+}
+
+.hero h1{
+    font-size:72px;
+    line-height:1.1;
+    max-width:950px;
+    margin:auto;
+    margin-bottom:25px;
+}
+
+.hero p{
+    max-width:760px;
+    margin:auto;
+    color:#94a3b8;
+    font-size:20px;
+    line-height:1.8;
+}
+
+.hero-buttons{
+    margin-top:40px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.secondary-btn{
+    border:1px solid rgba(255,255,255,.1);
+    padding:14px 28px;
+    border-radius:12px;
+    color:white;
+    text-decoration:none;
+}
+
+.mockup{
+    margin-top:70px;
+    background:#0f172a;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:24px;
+    padding:30px;
+    text-align:left;
+    max-width:950px;
+    margin-left:auto;
+    margin-right:auto;
+    box-shadow:0 20px 80px rgba(0,0,0,.5);
+}
+
+.code-line{
+    background:#111827;
+    padding:14px;
+    border-radius:12px;
+    margin-bottom:12px;
+    color:#22c55e;
+    font-family:monospace;
+}
+
+.section{
+    padding:110px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.section-title h2{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.section-title p{
+    color:#94a3b8;
+    max-width:700px;
+    margin:auto;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#0f172a;
+    border:1px solid rgba(255,255,255,.06);
+    padding:35px;
+    border-radius:24px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:#8b5cf6;
+}
+
+.card h3{
+    margin-bottom:18px;
+    font-size:22px;
+}
+
+.card p{
+    color:#94a3b8;
+    line-height:1.7;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.stat{
+    background:#0f172a;
+    padding:40px;
+    border-radius:24px;
+    text-align:center;
+}
+
+.stat h3{
+    font-size:48px;
+    color:#8b5cf6;
+}
+
+.stat p{
+    margin-top:10px;
+    color:#94a3b8;
+}
+
+.pricing{
+    max-width:700px;
+    margin:auto;
+    background:#0f172a;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:30px;
+    padding:60px;
+    text-align:center;
+}
+
+.price{
+    font-size:70px;
+    font-weight:800;
+    margin:25px 0;
+    color:#8b5cf6;
+}
+
+.pricing ul{
+    list-style:none;
+    margin:35px 0;
+}
+
+.pricing li{
+    margin-bottom:16px;
+    color:#cbd5e1;
+}
+
+.faq{
+    max-width:850px;
+    margin:auto;
+}
+
+.faq-item{
+    background:#0f172a;
+    border-radius:18px;
+    margin-bottom:20px;
+    padding:25px;
+}
+
+.faq-item h4{
+    margin-bottom:12px;
+}
+
+.faq-item p{
+    color:#94a3b8;
+}
+
+.cta{
+    text-align:center;
+    padding:120px 0;
+}
+
+.cta h2{
+    font-size:56px;
+    max-width:900px;
+    margin:auto;
+    margin-bottom:30px;
+}
+
+footer{
+    border-top:1px solid rgba(255,255,255,.08);
+    padding:50px 0;
+    text-align:center;
+    color:#64748b;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:42px;
+}
+
+.section-title h2{
+    font-size:36px;
+}
+
+.cta h2{
+    font-size:38px;
+}
+
+.price{
+    font-size:50px;
+}
+
+.menu{
+    display:none;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container">
+<nav>
+
+<div class="logo">
+SEU BRAND
+</div>
+
+<div class="menu">
+<a href="#">Recursos</a>
+<a href="#">Benefícios</a>
+<a href="#">Preços</a>
+<a href="#">FAQ</a>
+</div>
+
+<a href="#" class="btn">
+COMEÇAR AGORA
+</a>
+
+</nav>
+</div>
+</header>
+
+<section class="hero">
+
+<div class="container">
+
+<div class="badge">
+🔥 Nova geração de automação com IA
+</div>
+
+<h1>
+Transforme Sua Ideia Em Um Negócio Profissional
+</h1>
+
+<p>
+Estrutura moderna para vender produtos digitais, cursos,
+SaaS ou serviços com aparência premium e alta conversão.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#" class="btn">
+COMEÇAR AGORA
+</a>
+
+<a href="#" class="secondary-btn">
+VER DEMONSTRAÇÃO
+</a>
+
+</div>
+
+<div class="mockup">
+
+<div class="code-line">
+✓ Conversão otimizada
+</div>
+
+<div class="code-line">
+✓ Design premium inspirado em SaaS milionários
+</div>
+
+<div class="code-line">
+✓ Responsivo para celular
+</div>
+
+<div class="code-line">
+✓ Estrutura pronta para vendas
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Tudo que você precisa
+</h2>
+
+<p>
+Uma estrutura moderna pensada para aumentar autoridade,
+retenção e conversão.
+</p>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h3>Alta Conversão</h3>
+<p>
+Copywriting forte com CTA estratégico distribuído na página.
+</p>
+</div>
+
+<div class="card">
+<h3>Visual Premium</h3>
+<p>
+Design escuro moderno inspirado em startups milionárias.
+</p>
+</div>
+
+<div class="card">
+<h3>Responsivo</h3>
+<p>
+Funciona perfeitamente em celular, tablet e computador.
+</p>
+</div>
+
+<div class="card">
+<h3>SEO Otimizado</h3>
+<p>
+Estrutura preparada para Google e tráfego orgânico.
+</p>
+</div>
+
+<div class="card">
+<h3>Carregamento Rápido</h3>
+<p>
+Código limpo e leve com excelente performance.
+</p>
+</div>
+
+<div class="card">
+<h3>Fácil de Editar</h3>
+<p>
+Troque textos, imagens e botões em poucos minutos.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Resultados reais
+</h2>
+
+<p>
+Empresas modernas usam estruturas minimalistas focadas
+em clareza e conversão.
+</p>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<h3>+250%</h3>
+<p>Aumento de conversão</p>
+</div>
+
+<div class="stat">
+<h3>3x</h3>
+<p>Mais retenção visual</p>
+</div>
+
+<div class="stat">
+<h3>24h</h3>
+<p>Para publicar sua página</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="container">
+
+<div class="pricing">
+
+<h2>
+Oferta Especial
+</h2>
+
+<div class="price">
+R$97
+</div>
+
+<p>
+Pagamento único com acesso vitalício.
+</p>
+
+<ul>
+<li>✓ Acesso imediato</li>
+<li>✓ Atualizações futuras</li>
+<li>✓ Suporte completo</li>
+<li>✓ Garantia de 7 dias</li>
+</ul>
+
+<a href="#" class="btn">
+COMPRAR AGORA
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Perguntas Frequentes
+</h2>
+
+</div>
+
+<div class="faq">
+
+<div class="faq-item">
+<h4>Preciso saber programação?</h4>
+<p>
+Não. Você pode editar facilmente os textos e imagens.
+</p>
+</div>
+
+<div class="faq-item">
+<h4>Funciona em celular?</h4>
+<p>
+Sim. O layout é totalmente responsivo.
+</p>
+</div>
+
+<div class="faq-item">
+<h4>Posso usar para cursos?</h4>
+<p>
+Sim. Serve para SaaS, cursos, serviços e infoprodutos.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="cta">
+
+<div class="container">
+
+<h2>
+Comece hoje mesmo sua estrutura profissional
+</h2>
+
+<a href="#" class="btn">
+CRIAR MINHA PÁGINA
+</a>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="container">
+
+© 2026 - Todos os direitos reservados
+
+</div>
+
+</footer>
+
+</body>
+</html>
