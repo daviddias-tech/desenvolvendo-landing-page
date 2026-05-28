@@ -22,17 +22,30 @@ Escola do Reino
 </div>
 
 <div class="menu">
-<a href="#">Recursos</a>
-<a href="#">Benefícios</a>
-<a href="#">Preços</a>
-<a href="#">FAQ</a>
+<a href="#recursos">Recursos</a>
+<a href="#beneficios">Benefícios</a>
+<a href="#precos">Preços</a>
+<a href="#faq">FAQ</a>
 </div>
+
+<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menu">
+<span></span>
+<span></span>
+<span></span>
+</button>
 
 <a href="#" class="btn">
 COMEÇAR AGORA
 </a>
 
 </nav>
+<div class="mobile-menu" id="mobileMenu">
+<button class="mobile-menu-close" id="mobileMenuClose" aria-label="Fechar menu">×</button>
+<a href="#recursos">Recursos</a>
+<a href="#beneficios">Benefícios</a>
+<a href="#precos">Preços</a>
+<a href="#faq">FAQ</a>
+</div>
 </div>
 </header>
 
@@ -89,7 +102,7 @@ VER DEMONSTRAÇÃO
 
 </section>
 
-<section class="section">
+<section class="section" id="recursos">
 
 <div class="container">
 
@@ -196,7 +209,7 @@ em clareza e conversão.
 
 </section>
 
-<section class="section">
+<section class="section" id="precos">
 
 <div class="container">
 
@@ -231,7 +244,7 @@ COMPRAR AGORA
 
 </section>
 
-<section class="section">
+<section class="section" id="faq">
 
 <div class="container">
 
@@ -298,5 +311,22 @@ CRIAR MINHA PÁGINA
 
 </footer>
 
+<script>
+const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+const mobileMenuClose = document.getElementById("mobileMenuClose");
+
+mobileMenuBtn.addEventListener("click", () => mobileMenu.classList.add("active"));
+mobileMenuClose.addEventListener("click", () => mobileMenu.classList.remove("active"));
+mobileMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => mobileMenu.classList.remove("active"));
+});
+
+window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        mobileMenu.classList.remove("active");
+    }
+});
+</script>
 </body>
 </html>
